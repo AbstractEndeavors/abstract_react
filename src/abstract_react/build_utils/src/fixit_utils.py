@@ -1,7 +1,7 @@
 from __future__ import annotations
 from ..imports import *
 from .path_utils import *
-
+##from abstract_react import run_build_get_errors, get_entry_output
 import os
 import subprocess
 from .error_utils import *
@@ -16,7 +16,7 @@ def apply_overrides(rules):
             r["fixes"] = OVERRIDES[key]
     return rules
 import os, subprocess
-from abstract_react import run_build_get_errors, get_entry_output
+
 
 # Special overrides for known tricky modules
 OVERRIDES = {

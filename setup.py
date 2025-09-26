@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='abstract_react',
-    version='0.0.0.48',
+    version='0.0.0.49',
     author='putkoff',
     author_email='partners@abstractendeavors.com',
     description="",
