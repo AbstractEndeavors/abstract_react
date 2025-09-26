@@ -1,0 +1,1 @@
+error TS18003: No inputs were found in config file '/home/computron/tsconfig.json'. Specified 'include' paths were '["src/**/*.ts","src/**/*.tsx"]' and 'exclude' paths were '["node_modules","dist"]'.

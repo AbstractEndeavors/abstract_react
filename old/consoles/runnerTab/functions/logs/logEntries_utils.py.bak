@@ -1,0 +1,89 @@
+from ...imports import *
+
+import logging
+def append_log(self, text):
+    cursor = self.log_view.textCursor()
+    cursor.movePosition(QTextCursor.MoveOperation.End)
+    self.log_view.setTextCursor(cursor)
+    self.log_view.insertPlainText(text)
+    logging.getLogger("reactRunner.ui").info(text.rstrip("\n"))
+    
+def set_last_output(self, text: str):
+    # keep the raw text
+    self.last_output = text or ""
+    # keep parsed view
+    try:
+        self.parsed_logs = parse_tsc_output(self.last_output)
+    except Exception:
+        self.parsed_logs = {'entries': [], 'by_file': {}}
+    # auto-populate the Errors list with *errors* (not warnings)
+    only_errors = [(p, ln, col) for (p, ln, col, lvl, _msg) in self.parsed_logs.get('entries', []) if lvl == 'error']
+    self.show_error_entries(only_errors)
+    self.apply_log_filter()
+
+def _editor_goto_and_mark(self, line: int, col: int | None):
+    try:
+        tc = self.editor.textCursor()
+        doc = self.editor.document()
+        # clamp
+        line = max(1, line); col = max(1, col or 1)
+        # find block
+        blk = doc.findBlockByNumber(line - 1)
+        pos = blk.position() + (col - 1)
+        tc.setPosition(pos)
+        self.editor.setTextCursor(tc)
+        self.editor.centerCursor()
+        # highlight the full line
+        extra = QTextCharFormat(); extra.setBackground(QColor(255, 255, 0, 60))
+        tc.clearSelection()
+        tc.movePosition(QTextCursor.MoveOperation.StartOfBlock)
+        tc.movePosition(QTextCursor.MoveOperation.EndOfBlock, QTextCursor.MoveMode.KeepAnchor)
+        tc.mergeCharFormat(extra)
+    except Exception:
+        pass
+
+def _editor_open_file(self, path: str, line: int, col: int | None):
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            text = f.read()
+        self.current_file_path = path
+        self.original_text = text
+        self.editor.setPlainText(text)
+        self._editor_goto_and_mark(line, col)
+    except Exception as e:
+        self.append_log(f"[editor] open error: {e}\n")
+
+def show_error_entries(self, entries):
+    self.errors_list.clear()
+    self.append_log(f"[dbg] show_error_entries entries={len(entries)} widget_id={id(self.errors_list)}\n")
+    if self.cb_try_alt_ext.isChecked():
+        entries = [(resolve_alt_ext(p, self.path_in.text().strip()), ln, col) for (p, ln, col) in entries]
+    if not entries:
+        self.append_log("\n✅ No matching errors.\n")
+        return
+    self.append_log("\nErrors found:\n")
+    for path, line, col in entries:
+        info = f"{path}:{line}:{col or 1}"
+        self.append_log(info + "\n")
+        self.errors_list.addItem(QListWidgetItem(info))
+
+def show_warning_entries(self, entries):
+    self.warnings_list.clear()
+    if self.cb_try_alt_ext.isChecked():
+        entries = [(resolve_alt_ext(p, self.path_in.text().strip()), ln, col) for (p, ln, col) in entries]
+    if not entries:
+        self.append_log("\nℹ️ No warnings.\n")
+        return
+    self.append_log("\nWarnings found:\n")
+    for path, line, col in entries:
+        info = f"{path}:{line}:{col or 1}"
+        self.append_log(info + "\n")
+        self.warnings_list.addItem(QListWidgetItem(info))
+
+def apply_log_filter(self):
+    if self.rb_err.isChecked():
+        self._replace_log(self.last_errors_only or "(no errors)")
+    elif self.rb_wrn.isChecked():
+        self._replace_log(self.last_warnings_only or "(no warnings)")
+    else:
+        self._replace_log(self.last_output or "")

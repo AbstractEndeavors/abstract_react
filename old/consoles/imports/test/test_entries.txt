@@ -1,0 +1,864 @@
++ cd /var/www/TDD/my-app
++ '[' -s /home/computron/.nvm/nvm.sh ']'
++ . /home/computron/.nvm/nvm.sh
+++ NVM_SCRIPT_SOURCE=']'
+++ '[' -z '' ']'
+++ export NVM_CD_FLAGS=
+++ NVM_CD_FLAGS=
+++ nvm_is_zsh
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ '[' -n /home/computron/.nvm/nvm.sh ']'
+++ NVM_SCRIPT_SOURCE=/home/computron/.nvm/nvm.sh
+++++ dirname /home/computron/.nvm/nvm.sh
++++ nvm_cd /home/computron/.nvm
++++ cd /home/computron/.nvm
++++ pwd
+++ NVM_DIR=/home/computron/.nvm
+++ export NVM_DIR
+++ unset NVM_SCRIPT_SOURCE
+++ nvm_process_parameters
+++ local NVM_AUTO_MODE
+++ NVM_AUTO_MODE=use
+++ '[' 0 -ne 0 ']'
+++ nvm_auto use
+++ local NVM_MODE
+++ NVM_MODE=use
+++ local VERSION
+++ local NVM_CURRENT
+++ '[' _use = _install ']'
+++ '[' _use = _use ']'
++++ nvm_ls_current
++++ local NVM_LS_CURRENT_NODE_PATH
+++++ command which node
++++ NVM_LS_CURRENT_NODE_PATH=/home/computron/.nvm/versions/node/v22.17.0/bin/node
+++++ nvm_version_dir iojs
+++++ local NVM_WHICH_DIR
+++++ NVM_WHICH_DIR=iojs
+++++ '[' -z iojs ']'
+++++ '[' iojs = new ']'
+++++ '[' _iojs = _iojs ']'
+++++ nvm_echo /home/computron/.nvm/versions/io.js
+++++ command printf '%s\n' /home/computron/.nvm/versions/io.js
++++ nvm_tree_contains_path /home/computron/.nvm/versions/io.js /home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ local tree
++++ tree=/home/computron/.nvm/versions/io.js
++++ local node_path
++++ node_path=/home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ '[' @/home/computron/.nvm/versions/io.js@ = @@ ']'
++++ '[' @/home/computron/.nvm/versions/node/v22.17.0/bin/node@ = @@ ']'
++++ local previous_pathdir
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ local pathdir
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' /home/computron/.nvm/versions/node/v22.17.0/bin/node ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0/bin
++++ pathdir=/home/computron/.nvm/versions/node/v22.17.0
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' /home/computron/.nvm/versions/node/v22.17.0/bin ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0
++++ pathdir=/home/computron/.nvm/versions/node
++++ '[' /home/computron/.nvm/versions/node '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron/.nvm/versions/node '!=' /home/computron/.nvm/versions/node/v22.17.0 ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node
+++++ dirname /home/computron/.nvm/versions/node
++++ pathdir=/home/computron/.nvm/versions
++++ '[' /home/computron/.nvm/versions '!=' '' ']'
++++ '[' /home/computron/.nvm/versions '!=' . ']'
++++ '[' /home/computron/.nvm/versions '!=' / ']'
++++ '[' /home/computron/.nvm/versions '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron/.nvm/versions '!=' /home/computron/.nvm/versions/node ']'
++++ previous_pathdir=/home/computron/.nvm/versions
+++++ dirname /home/computron/.nvm/versions
++++ pathdir=/home/computron/.nvm
++++ '[' /home/computron/.nvm '!=' '' ']'
++++ '[' /home/computron/.nvm '!=' . ']'
++++ '[' /home/computron/.nvm '!=' / ']'
++++ '[' /home/computron/.nvm '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron/.nvm '!=' /home/computron/.nvm/versions ']'
++++ previous_pathdir=/home/computron/.nvm
+++++ dirname /home/computron/.nvm
++++ pathdir=/home/computron
++++ '[' /home/computron '!=' '' ']'
++++ '[' /home/computron '!=' . ']'
++++ '[' /home/computron '!=' / ']'
++++ '[' /home/computron '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home/computron '!=' /home/computron/.nvm ']'
++++ previous_pathdir=/home/computron
+++++ dirname /home/computron
++++ pathdir=/home
++++ '[' /home '!=' '' ']'
++++ '[' /home '!=' . ']'
++++ '[' /home '!=' / ']'
++++ '[' /home '!=' /home/computron/.nvm/versions/io.js ']'
++++ '[' /home '!=' /home/computron ']'
++++ previous_pathdir=/home
+++++ dirname /home
++++ pathdir=/
++++ '[' / '!=' '' ']'
++++ '[' / '!=' . ']'
++++ '[' / '!=' / ']'
++++ '[' / = /home/computron/.nvm/versions/io.js ']'
++++ nvm_tree_contains_path /home/computron/.nvm /home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ local tree
++++ tree=/home/computron/.nvm
++++ local node_path
++++ node_path=/home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ '[' @/home/computron/.nvm@ = @@ ']'
++++ '[' @/home/computron/.nvm/versions/node/v22.17.0/bin/node@ = @@ ']'
++++ local previous_pathdir
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ local pathdir
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0/bin/node
++++ pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' /home/computron/.nvm ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0/bin '!=' /home/computron/.nvm/versions/node/v22.17.0/bin/node ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0/bin
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0/bin
++++ pathdir=/home/computron/.nvm/versions/node/v22.17.0
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' /home/computron/.nvm ']'
++++ '[' /home/computron/.nvm/versions/node/v22.17.0 '!=' /home/computron/.nvm/versions/node/v22.17.0/bin ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node/v22.17.0
+++++ dirname /home/computron/.nvm/versions/node/v22.17.0
++++ pathdir=/home/computron/.nvm/versions/node
++++ '[' /home/computron/.nvm/versions/node '!=' '' ']'
++++ '[' /home/computron/.nvm/versions/node '!=' . ']'
++++ '[' /home/computron/.nvm/versions/node '!=' / ']'
++++ '[' /home/computron/.nvm/versions/node '!=' /home/computron/.nvm ']'
++++ '[' /home/computron/.nvm/versions/node '!=' /home/computron/.nvm/versions/node/v22.17.0 ']'
++++ previous_pathdir=/home/computron/.nvm/versions/node
+++++ dirname /home/computron/.nvm/versions/node
++++ pathdir=/home/computron/.nvm/versions
++++ '[' /home/computron/.nvm/versions '!=' '' ']'
++++ '[' /home/computron/.nvm/versions '!=' . ']'
++++ '[' /home/computron/.nvm/versions '!=' / ']'
++++ '[' /home/computron/.nvm/versions '!=' /home/computron/.nvm ']'
++++ '[' /home/computron/.nvm/versions '!=' /home/computron/.nvm/versions/node ']'
++++ previous_pathdir=/home/computron/.nvm/versions
+++++ dirname /home/computron/.nvm/versions
++++ pathdir=/home/computron/.nvm
++++ '[' /home/computron/.nvm '!=' '' ']'
++++ '[' /home/computron/.nvm '!=' . ']'
++++ '[' /home/computron/.nvm '!=' / ']'
++++ '[' /home/computron/.nvm '!=' /home/computron/.nvm ']'
++++ '[' /home/computron/.nvm = /home/computron/.nvm ']'
++++ local VERSION
+++++ node --version
++++ VERSION=v22.17.0
++++ '[' v22.17.0 = v0.6.21-pre ']'
++++ nvm_echo v22.17.0
++++ command printf '%s\n' v22.17.0
+++ NVM_CURRENT=v22.17.0
+++ '[' _v22.17.0 = _none ']'
+++ '[' _v22.17.0 = _system ']'
+++ nvm use --silent v22.17.0
+++ '[' 3 -lt 1 ']'
+++ local DEFAULT_IFS
++++ nvm_echo t
++++ command printf '%s\n' t
++++ command tr t '\t'
+++ DEFAULT_IFS=' 	
+'
+++ '[' hxB '!=' ehxB ']'
+++ set +e
+++ local EXIT_CODE
+++ IFS=' 	
+'
+++ nvm use --silent v22.17.0
+++ '[' 3 -lt 1 ']'
+++ local DEFAULT_IFS
++++ nvm_echo t
++++ command printf '%s\n' t
++++ command tr t '\t'
+++ DEFAULT_IFS=' 	
+'
+++ '[' hxB '!=' hxB ']'
+++ '[' hxB '!=' hxB ']'
+++ '[' -n /usr/bin/bash ']'
+++ '[' hxB '!=' hxB ']'
+++ '[' ' 	
+' '!=' ' 	
+' ']'
+++ local i
+++ for i in "$@"
+++ case $i in
+++ for i in "$@"
+++ case $i in
+++ for i in "$@"
+++ case $i in
+++ local COMMAND
+++ COMMAND=use
+++ shift
+++ local VERSION
+++ local ADDITIONAL_PARAMETERS
+++ case $COMMAND in
+++ local PROVIDED_VERSION
+++ local NVM_SILENT
+++ local NVM_SILENT_ARG
+++ local NVM_DELETE_PREFIX
+++ NVM_DELETE_PREFIX=0
+++ local NVM_LTS
+++ local IS_VERSION_FROM_NVMRC
+++ IS_VERSION_FROM_NVMRC=0
+++ '[' 2 -ne 0 ']'
+++ case "$1" in
+++ NVM_SILENT=1
+++ NVM_SILENT_ARG=--silent
+++ shift
+++ '[' 1 -ne 0 ']'
+++ case "$1" in
+++ '[' -n v22.17.0 ']'
+++ PROVIDED_VERSION=v22.17.0
+++ shift
+++ '[' 0 -ne 0 ']'
+++ '[' -n '' ']'
+++ '[' -z v22.17.0 ']'
++++ nvm_match_version v22.17.0
++++ local NVM_IOJS_PREFIX
+++++ nvm_iojs_prefix
+++++ nvm_echo iojs
+++++ command printf '%s\n' iojs
++++ NVM_IOJS_PREFIX=iojs
++++ local PROVIDED_VERSION
++++ PROVIDED_VERSION=v22.17.0
++++ case "_${PROVIDED_VERSION}" in
++++ nvm_version v22.17.0
++++ local PATTERN
++++ PATTERN=v22.17.0
++++ local VERSION
++++ '[' -z v22.17.0 ']'
++++ '[' v22.17.0 = current ']'
++++ local NVM_NODE_PREFIX
+++++ nvm_node_prefix
+++++ nvm_echo node
+++++ command printf '%s\n' node
++++ NVM_NODE_PREFIX=node
++++ case "_${PATTERN}" in
+++++ nvm_ls v22.17.0
+++++ local PATTERN
+++++ PATTERN=v22.17.0
+++++ local VERSIONS
+++++ VERSIONS=
+++++ command tail -1
+++++ '[' v22.17.0 = current ']'
+++++ local NVM_IOJS_PREFIX
++++++ nvm_iojs_prefix
++++++ nvm_echo iojs
++++++ command printf '%s\n' iojs
+++++ NVM_IOJS_PREFIX=iojs
+++++ local NVM_NODE_PREFIX
++++++ nvm_node_prefix
++++++ nvm_echo node
++++++ command printf '%s\n' node
+++++ NVM_NODE_PREFIX=node
+++++ local NVM_VERSION_DIR_IOJS
++++++ nvm_version_dir iojs
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=iojs
++++++ '[' -z iojs ']'
++++++ '[' iojs = new ']'
++++++ '[' _iojs = _iojs ']'
++++++ nvm_echo /home/computron/.nvm/versions/io.js
++++++ command printf '%s\n' /home/computron/.nvm/versions/io.js
+++++ NVM_VERSION_DIR_IOJS=/home/computron/.nvm/versions/io.js
+++++ local NVM_VERSION_DIR_NEW
++++++ nvm_version_dir new
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=new
++++++ '[' -z new ']'
++++++ '[' new = new ']'
++++++ nvm_echo /home/computron/.nvm/versions/node
++++++ command printf '%s\n' /home/computron/.nvm/versions/node
+++++ NVM_VERSION_DIR_NEW=/home/computron/.nvm/versions/node
+++++ local NVM_VERSION_DIR_OLD
++++++ nvm_version_dir old
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=old
++++++ '[' -z old ']'
++++++ '[' old = new ']'
++++++ '[' _old = _iojs ']'
++++++ '[' _old = _old ']'
++++++ nvm_echo /home/computron/.nvm
++++++ command printf '%s\n' /home/computron/.nvm
+++++ NVM_VERSION_DIR_OLD=/home/computron/.nvm
+++++ case "${PATTERN}" in
+++++ nvm_resolve_local_alias v22.17.0
+++++ '[' -z v22.17.0 ']'
+++++ local VERSION
+++++ local EXIT_CODE
++++++ nvm_resolve_alias v22.17.0
++++++ '[' -z v22.17.0 ']'
++++++ local PATTERN
++++++ PATTERN=v22.17.0
++++++ local ALIAS
++++++ ALIAS=v22.17.0
++++++ local ALIAS_TEMP
++++++ local SEEN_ALIASES
++++++ SEEN_ALIASES=v22.17.0
++++++ local NVM_ALIAS_INDEX
++++++ NVM_ALIAS_INDEX=1
++++++ true
+++++++ nvm_alias v22.17.0
+++++++ command head -n 1
+++++++ command tail -n 1
+++++++ nvm_echo
+++++++ command printf '%s\n' ''
++++++ ALIAS_TEMP=
++++++ '[' -z '' ']'
++++++ break
++++++ '[' -n v22.17.0 ']'
++++++ '[' _v22.17.0 '!=' _v22.17.0 ']'
++++++ nvm_validate_implicit_alias v22.17.0
++++++ return 2
+++++ VERSION=
+++++ EXIT_CODE=2
+++++ '[' -z '' ']'
+++++ return 2
++++++ nvm_ensure_version_prefix v22.17.0
++++++ local NVM_VERSION
+++++++ nvm_strip_iojs_prefix v22.17.0
+++++++ local NVM_IOJS_PREFIX
+++++++ command sed -e 's/^\([0-9]\)/v\1/g'
++++++++ nvm_iojs_prefix
++++++++ nvm_echo iojs
++++++++ command printf '%s\n' iojs
+++++++ NVM_IOJS_PREFIX=iojs
+++++++ '[' v22.17.0 = iojs ']'
+++++++ nvm_echo v22.17.0
+++++++ command printf '%s\n' v22.17.0
++++++ NVM_VERSION=v22.17.0
++++++ nvm_is_iojs_version v22.17.0
++++++ case "${1-}" in
++++++ return 1
++++++ nvm_echo v22.17.0
++++++ command printf '%s\n' v22.17.0
+++++ PATTERN=v22.17.0
+++++ '[' v22.17.0 = N/A ']'
+++++ local NVM_PATTERN_STARTS_WITH_V
+++++ case $PATTERN in
+++++ NVM_PATTERN_STARTS_WITH_V=true
+++++ '[' true = true ']'
++++++ nvm_num_version_groups v22.17.0
++++++ local VERSION
++++++ VERSION=v22.17.0
++++++ VERSION=22.17.0
++++++ VERSION=22.17.0
++++++ '[' -z 22.17.0 ']'
++++++ local NVM_NUM_DOTS
+++++++ nvm_echo 22.17.0
+++++++ command printf '%s\n' 22.17.0
+++++++ command sed -e 's/[^\.]//g'
++++++ NVM_NUM_DOTS=..
++++++ local NVM_NUM_GROUPS
++++++ NVM_NUM_GROUPS=...
++++++ nvm_echo 3
++++++ command printf '%s\n' 3
+++++ '[' _3 = _3 ']'
+++++ nvm_is_version_installed v22.17.0
+++++ '[' -z v22.17.0 ']'
+++++ local NVM_NODE_BINARY
+++++ NVM_NODE_BINARY=node
++++++ nvm_get_os
++++++ local NVM_UNAME
+++++++ command uname -a
++++++ NVM_UNAME='Linux computron-System-Product-Name 6.14.0-28-generic #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 25 10:47:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux'
++++++ local NVM_OS
++++++ case "${NVM_UNAME}" in
++++++ NVM_OS=linux
++++++ nvm_echo linux
++++++ command printf '%s\n' linux
+++++ '[' _linux = _win ']'
++++++ nvm_version_path v22.17.0
+++++ '[' -x /home/computron/.nvm/versions/node/v22.17.0/bin/node ']'
+++++ return 0
+++++ VERSIONS=v22.17.0
+++++ '[' '' = true ']'
+++++ '[' -z v22.17.0 ']'
+++++ nvm_echo v22.17.0
+++++ command printf '%s\n' v22.17.0
++++ VERSION=v22.17.0
++++ '[' -z v22.17.0 ']'
++++ '[' _v22.17.0 = _N/A ']'
++++ nvm_echo v22.17.0
++++ command printf '%s\n' v22.17.0
+++ VERSION=v22.17.0
+++ '[' -z v22.17.0 ']'
+++ '[' _v22.17.0 = _system ']'
+++ '[' _v22.17.0 = _∞ ']'
+++ '[' v22.17.0 = N/A ']'
+++ nvm_ensure_version_installed v22.17.0 0
+++ local PROVIDED_VERSION
+++ PROVIDED_VERSION=v22.17.0
+++ local IS_VERSION_FROM_NVMRC
+++ IS_VERSION_FROM_NVMRC=0
+++ '[' v22.17.0 = system ']'
+++ local LOCAL_VERSION
+++ local EXIT_CODE
++++ nvm_version v22.17.0
++++ local PATTERN
++++ PATTERN=v22.17.0
++++ local VERSION
++++ '[' -z v22.17.0 ']'
++++ '[' v22.17.0 = current ']'
++++ local NVM_NODE_PREFIX
+++++ nvm_node_prefix
+++++ nvm_echo node
+++++ command printf '%s\n' node
++++ NVM_NODE_PREFIX=node
++++ case "_${PATTERN}" in
+++++ nvm_ls v22.17.0
+++++ local PATTERN
+++++ PATTERN=v22.17.0
+++++ local VERSIONS
+++++ VERSIONS=
+++++ command tail -1
+++++ '[' v22.17.0 = current ']'
+++++ local NVM_IOJS_PREFIX
++++++ nvm_iojs_prefix
++++++ nvm_echo iojs
++++++ command printf '%s\n' iojs
+++++ NVM_IOJS_PREFIX=iojs
+++++ local NVM_NODE_PREFIX
++++++ nvm_node_prefix
++++++ nvm_echo node
++++++ command printf '%s\n' node
+++++ NVM_NODE_PREFIX=node
+++++ local NVM_VERSION_DIR_IOJS
++++++ nvm_version_dir iojs
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=iojs
++++++ '[' -z iojs ']'
++++++ '[' iojs = new ']'
++++++ '[' _iojs = _iojs ']'
++++++ nvm_echo /home/computron/.nvm/versions/io.js
++++++ command printf '%s\n' /home/computron/.nvm/versions/io.js
+++++ NVM_VERSION_DIR_IOJS=/home/computron/.nvm/versions/io.js
+++++ local NVM_VERSION_DIR_NEW
++++++ nvm_version_dir new
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=new
++++++ '[' -z new ']'
++++++ '[' new = new ']'
++++++ nvm_echo /home/computron/.nvm/versions/node
++++++ command printf '%s\n' /home/computron/.nvm/versions/node
+++++ NVM_VERSION_DIR_NEW=/home/computron/.nvm/versions/node
+++++ local NVM_VERSION_DIR_OLD
++++++ nvm_version_dir old
++++++ local NVM_WHICH_DIR
++++++ NVM_WHICH_DIR=old
++++++ '[' -z old ']'
++++++ '[' old = new ']'
++++++ '[' _old = _iojs ']'
++++++ '[' _old = _old ']'
++++++ nvm_echo /home/computron/.nvm
++++++ command printf '%s\n' /home/computron/.nvm
+++++ NVM_VERSION_DIR_OLD=/home/computron/.nvm
+++++ case "${PATTERN}" in
+++++ nvm_resolve_local_alias v22.17.0
+++++ '[' -z v22.17.0 ']'
+++++ local VERSION
+++++ local EXIT_CODE
++++++ nvm_resolve_alias v22.17.0
++++++ '[' -z v22.17.0 ']'
++++++ local PATTERN
++++++ PATTERN=v22.17.0
++++++ local ALIAS
++++++ ALIAS=v22.17.0
++++++ local ALIAS_TEMP
++++++ local SEEN_ALIASES
++++++ SEEN_ALIASES=v22.17.0
++++++ local NVM_ALIAS_INDEX
++++++ NVM_ALIAS_INDEX=1
++++++ true
+++++++ nvm_alias v22.17.0
+++++++ command head -n 1
+++++++ command tail -n 1
+++++++ nvm_echo
+++++++ command printf '%s\n' ''
++++++ ALIAS_TEMP=
++++++ '[' -z '' ']'
++++++ break
++++++ '[' -n v22.17.0 ']'
++++++ '[' _v22.17.0 '!=' _v22.17.0 ']'
++++++ nvm_validate_implicit_alias v22.17.0
++++++ return 2
+++++ VERSION=
+++++ EXIT_CODE=2
+++++ '[' -z '' ']'
+++++ return 2
++++++ nvm_ensure_version_prefix v22.17.0
++++++ local NVM_VERSION
+++++++ nvm_strip_iojs_prefix v22.17.0
+++++++ local NVM_IOJS_PREFIX
+++++++ command sed -e 's/^\([0-9]\)/v\1/g'
++++++++ nvm_iojs_prefix
++++++++ nvm_echo iojs
++++++++ command printf '%s\n' iojs
+++++++ NVM_IOJS_PREFIX=iojs
+++++++ '[' v22.17.0 = iojs ']'
+++++++ nvm_echo v22.17.0
+++++++ command printf '%s\n' v22.17.0
++++++ NVM_VERSION=v22.17.0
++++++ nvm_is_iojs_version v22.17.0
++++++ case "${1-}" in
++++++ return 1
++++++ nvm_echo v22.17.0
++++++ command printf '%s\n' v22.17.0
+++++ PATTERN=v22.17.0
+++++ '[' v22.17.0 = N/A ']'
+++++ local NVM_PATTERN_STARTS_WITH_V
+++++ case $PATTERN in
+++++ NVM_PATTERN_STARTS_WITH_V=true
+++++ '[' true = true ']'
++++++ nvm_num_version_groups v22.17.0
++++++ local VERSION
++++++ VERSION=v22.17.0
++++++ VERSION=22.17.0
++++++ VERSION=22.17.0
++++++ '[' -z 22.17.0 ']'
++++++ local NVM_NUM_DOTS
+++++++ nvm_echo 22.17.0
+++++++ command printf '%s\n' 22.17.0
+++++++ command sed -e 's/[^\.]//g'
++++++ NVM_NUM_DOTS=..
++++++ local NVM_NUM_GROUPS
++++++ NVM_NUM_GROUPS=...
++++++ nvm_echo 3
++++++ command printf '%s\n' 3
+++++ '[' _3 = _3 ']'
+++++ nvm_is_version_installed v22.17.0
+++++ '[' -z v22.17.0 ']'
+++++ local NVM_NODE_BINARY
+++++ NVM_NODE_BINARY=node
++++++ nvm_get_os
++++++ local NVM_UNAME
+++++++ command uname -a
++++++ NVM_UNAME='Linux computron-System-Product-Name 6.14.0-28-generic #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 25 10:47:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux'
++++++ local NVM_OS
++++++ case "${NVM_UNAME}" in
++++++ NVM_OS=linux
++++++ nvm_echo linux
++++++ command printf '%s\n' linux
+++++ '[' _linux = _win ']'
++++++ nvm_version_path v22.17.0
+++++ '[' -x /home/computron/.nvm/versions/node/v22.17.0/bin/node ']'
+++++ return 0
+++++ VERSIONS=v22.17.0
+++++ '[' '' = true ']'
+++++ '[' -z v22.17.0 ']'
+++++ nvm_echo v22.17.0
+++++ command printf '%s\n' v22.17.0
++++ VERSION=v22.17.0
++++ '[' -z v22.17.0 ']'
++++ '[' _v22.17.0 = _N/A ']'
++++ nvm_echo v22.17.0
++++ command printf '%s\n' v22.17.0
+++ LOCAL_VERSION=v22.17.0
+++ EXIT_CODE=0
+++ local NVM_VERSION_DIR
+++ '[' 0 '!=' 0 ']'
+++ nvm_is_version_installed v22.17.0
+++ '[' -z v22.17.0 ']'
+++ local NVM_NODE_BINARY
+++ NVM_NODE_BINARY=node
++++ nvm_get_os
++++ local NVM_UNAME
+++++ command uname -a
++++ NVM_UNAME='Linux computron-System-Product-Name 6.14.0-28-generic #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 25 10:47:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux'
++++ local NVM_OS
++++ case "${NVM_UNAME}" in
++++ NVM_OS=linux
++++ nvm_echo linux
++++ command printf '%s\n' linux
+++ '[' _linux = _win ']'
++++ nvm_version_path v22.17.0
+++ '[' -x /home/computron/.nvm/versions/node/v22.17.0/bin/node ']'
+++ return 0
+++ local NVM_VERSION_DIR
++++ nvm_version_path v22.17.0
++++ local VERSION
++++ VERSION=v22.17.0
++++ '[' -z v22.17.0 ']'
++++ nvm_is_iojs_version v22.17.0
++++ case "${1-}" in
++++ return 1
++++ nvm_version_greater 0.12.0 v22.17.0
++++ command awk 'BEGIN {
+    if (ARGV[1] == "" || ARGV[2] == "") exit(1)
+    split(ARGV[1], a, /\./);
+    split(ARGV[2], b, /\./);
+    for (i=1; i<=3; i++) {
+      if (a[i] && a[i] !~ /^[0-9]+$/) exit(2);
+      if (b[i] && b[i] !~ /^[0-9]+$/) { exit(0); }
+      if (a[i] < b[i]) exit(3);
+      else if (a[i] > b[i]) exit(0);
+    }
+    exit(4)
+  }' 0.12.0 22.17.0
+++++ nvm_version_dir new
+++++ local NVM_WHICH_DIR
+++++ NVM_WHICH_DIR=new
+++++ '[' -z new ']'
+++++ '[' new = new ']'
+++++ nvm_echo /home/computron/.nvm/versions/node
+++++ command printf '%s\n' /home/computron/.nvm/versions/node
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0
+++ NVM_VERSION_DIR=/home/computron/.nvm/versions/node/v22.17.0
++++ nvm_change_path /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None /bin /home/computron/.nvm/versions/node/v22.17.0
++++ '[' -z /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None ']'
++++ nvm_echo /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command printf '%s\n' /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ nvm_grep -q '/home/computron/.nvm/[^/]*/bin'
++++ GREP_OPTIONS=
++++ command grep -q '/home/computron/.nvm/[^/]*/bin'
++++ nvm_echo /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command printf '%s\n' /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ nvm_grep -q '/home/computron/.nvm/versions/[^/]*/[^/]*/bin'
++++ GREP_OPTIONS=
++++ command grep -q '/home/computron/.nvm/versions/[^/]*/[^/]*/bin'
++++ nvm_echo /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command printf '%s\n' /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ nvm_grep -Eq '(^|:)(/usr(/local)?)?/bin:.*/home/computron/.nvm/[^/]*/bin'
++++ GREP_OPTIONS=
++++ command grep -Eq '(^|:)(/usr(/local)?)?/bin:.*/home/computron/.nvm/[^/]*/bin'
++++ nvm_echo /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command printf '%s\n' /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ nvm_grep -Eq '(^|:)(/usr(/local)?)?/bin:.*/home/computron/.nvm/versions/[^/]*/[^/]*/bin'
++++ GREP_OPTIONS=
++++ command grep -Eq '(^|:)(/usr(/local)?)?/bin:.*/home/computron/.nvm/versions/[^/]*/[^/]*/bin'
++++ nvm_echo /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command printf '%s\n' /home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++++ command sed -e 's#/home/computron/.nvm/[^/]*/bin[^:]*#/home/computron/.nvm/versions/node/v22.17.0/bin#' -e 's#/home/computron/.nvm/versions/[^/]*/[^/]*/bin[^:]*#/home/computron/.nvm/versions/node/v22.17.0/bin#'
+++ PATH=/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
+++ nvm_has manpath
+++ type manpath
+++ '[' -z '' ']'
+++ local MANPATH
++++ manpath
+++ MANPATH=/home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ nvm_change_path /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man /share/man /home/computron/.nvm/versions/node/v22.17.0
++++ '[' -z /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man ']'
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ nvm_grep -q '/home/computron/.nvm/[^/]*/share/man'
++++ GREP_OPTIONS=
++++ command grep -q '/home/computron/.nvm/[^/]*/share/man'
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ nvm_grep -q '/home/computron/.nvm/versions/[^/]*/[^/]*/share/man'
++++ GREP_OPTIONS=
++++ command grep -q '/home/computron/.nvm/versions/[^/]*/[^/]*/share/man'
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ nvm_grep -Eq '(^|:)(/usr(/local)?)?/share/man:.*/home/computron/.nvm/[^/]*/share/man'
++++ GREP_OPTIONS=
++++ command grep -Eq '(^|:)(/usr(/local)?)?/share/man:.*/home/computron/.nvm/[^/]*/share/man'
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ nvm_grep -Eq '(^|:)(/usr(/local)?)?/share/man:.*/home/computron/.nvm/versions/[^/]*/[^/]*/share/man'
++++ GREP_OPTIONS=
++++ command grep -Eq '(^|:)(/usr(/local)?)?/share/man:.*/home/computron/.nvm/versions/[^/]*/[^/]*/share/man'
++++ nvm_echo /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command printf '%s\n' /home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
++++ command sed -e 's#/home/computron/.nvm/[^/]*/share/man[^:]*#/home/computron/.nvm/versions/node/v22.17.0/share/man#' -e 's#/home/computron/.nvm/versions/[^/]*/[^/]*/share/man[^:]*#/home/computron/.nvm/versions/node/v22.17.0/share/man#'
+++ MANPATH=/home/computron/.nvm/versions/node/v22.17.0/share/man:/home/computron/.local/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/home/computron/miniconda/man:/home/computron/miniconda/share/man
+++ export MANPATH
+++ export PATH
+++ hash -r
+++ export NVM_BIN=/home/computron/.nvm/versions/node/v22.17.0/bin
+++ NVM_BIN=/home/computron/.nvm/versions/node/v22.17.0/bin
+++ export NVM_INC=/home/computron/.nvm/versions/node/v22.17.0/include/node
+++ NVM_INC=/home/computron/.nvm/versions/node/v22.17.0/include/node
+++ '[' '' = true ']'
+++ local NVM_USE_OUTPUT
+++ NVM_USE_OUTPUT=
+++ '[' 1 -ne 1 ']'
+++ '[' _v22.17.0 '!=' _system ']'
+++ local NVM_USE_CMD
+++ NVM_USE_CMD='nvm use --delete-prefix'
+++ '[' -n v22.17.0 ']'
+++ NVM_USE_CMD='nvm use --delete-prefix v22.17.0'
+++ '[' 1 -eq 1 ']'
+++ NVM_USE_CMD='nvm use --delete-prefix v22.17.0 --silent'
+++ nvm_die_on_prefix 0 'nvm use --delete-prefix v22.17.0 --silent' /home/computron/.nvm/versions/node/v22.17.0
+++ local NVM_DELETE_PREFIX
+++ NVM_DELETE_PREFIX=0
+++ case "${NVM_DELETE_PREFIX}" in
+++ local NVM_COMMAND
+++ NVM_COMMAND='nvm use --delete-prefix v22.17.0 --silent'
+++ local NVM_VERSION_DIR
+++ NVM_VERSION_DIR=/home/computron/.nvm/versions/node/v22.17.0
+++ '[' -z 'nvm use --delete-prefix v22.17.0 --silent' ']'
+++ '[' -z /home/computron/.nvm/versions/node/v22.17.0 ']'
+++ '[' -n '' ']'
+++ local NVM_OS
++++ nvm_get_os
++++ local NVM_UNAME
+++++ command uname -a
++++ NVM_UNAME='Linux computron-System-Product-Name 6.14.0-28-generic #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 25 10:47:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux'
++++ local NVM_OS
++++ case "${NVM_UNAME}" in
++++ NVM_OS=linux
++++ nvm_echo linux
++++ command printf '%s\n' linux
+++ NVM_OS=linux
+++ local NVM_NPM_CONFIG_x_PREFIX_ENV
++++ command awk 'BEGIN { for (name in ENVIRON) if (toupper(name) == "NPM_CONFIG_PREFIX") { print name; break } }'
+++ NVM_NPM_CONFIG_x_PREFIX_ENV=
+++ '[' -n '' ']'
+++ local NVM_NPM_BUILTIN_NPMRC
+++ NVM_NPM_BUILTIN_NPMRC=/home/computron/.nvm/versions/node/v22.17.0/lib/node_modules/npm/npmrc
+++ nvm_npmrc_bad_news_bears /home/computron/.nvm/versions/node/v22.17.0/lib/node_modules/npm/npmrc
+++ local NVM_NPMRC
+++ NVM_NPMRC=/home/computron/.nvm/versions/node/v22.17.0/lib/node_modules/npm/npmrc
+++ '[' -n /home/computron/.nvm/versions/node/v22.17.0/lib/node_modules/npm/npmrc ']'
+++ '[' -f /home/computron/.nvm/versions/node/v22.17.0/lib/node_modules/npm/npmrc ']'
+++ return 1
+++ local NVM_NPM_GLOBAL_NPMRC
+++ NVM_NPM_GLOBAL_NPMRC=/home/computron/.nvm/versions/node/v22.17.0/etc/npmrc
+++ nvm_npmrc_bad_news_bears /home/computron/.nvm/versions/node/v22.17.0/etc/npmrc
+++ local NVM_NPMRC
+++ NVM_NPMRC=/home/computron/.nvm/versions/node/v22.17.0/etc/npmrc
+++ '[' -n /home/computron/.nvm/versions/node/v22.17.0/etc/npmrc ']'
+++ '[' -f /home/computron/.nvm/versions/node/v22.17.0/etc/npmrc ']'
+++ return 1
+++ local NVM_NPM_USER_NPMRC
+++ NVM_NPM_USER_NPMRC=/home/computron/.npmrc
+++ nvm_npmrc_bad_news_bears /home/computron/.npmrc
+++ local NVM_NPMRC
+++ NVM_NPMRC=/home/computron/.npmrc
+++ '[' -n /home/computron/.npmrc ']'
+++ '[' -f /home/computron/.npmrc ']'
+++ nvm_grep -Ee '^(prefix|globalconfig) *='
+++ GREP_OPTIONS=
+++ command grep -Ee '^(prefix|globalconfig) *='
+++ return 1
+++ local NVM_NPM_PROJECT_NPMRC
++++ nvm_find_project_dir
++++ local path_
++++ path_=/var/www/TDD/my-app
++++ '[' /var/www/TDD/my-app '!=' '' ']'
++++ '[' /var/www/TDD/my-app '!=' . ']'
++++ '[' '!' -f /var/www/TDD/my-app/package.json ']'
++++ nvm_echo /var/www/TDD/my-app
++++ command printf '%s\n' /var/www/TDD/my-app
+++ NVM_NPM_PROJECT_NPMRC=/var/www/TDD/my-app/.npmrc
+++ nvm_npmrc_bad_news_bears /var/www/TDD/my-app/.npmrc
+++ local NVM_NPMRC
+++ NVM_NPMRC=/var/www/TDD/my-app/.npmrc
+++ '[' -n /var/www/TDD/my-app/.npmrc ']'
+++ '[' -f /var/www/TDD/my-app/.npmrc ']'
+++ return 1
+++ '[' -n '' ']'
+++ EXIT_CODE=0
+++ set -e
+++ return 0
++ command -v corepack
++ corepack enable
++ echo '[env] PATH=/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None'
+[env] PATH=/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.nvm/versions/node/v22.17.0/bin:/home/computron/.local/bin:/home/computron/.yarn/bin:/home/computron/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/home/computron/miniconda/bin:/home/computron/miniconda/condabin:/home/computron/miniconda/bin:/home/computron/.local/share/solana/install/active_release/bin:/home/computron/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:None:None:None
++ node -v
+v22.17.0
++ npm -v
+10.9.2
++ yarn -v
+1.22.22
++ pnpm -v
+This project is configured to use yarn because /var/www/package.json has a "packageManager" field
++ true
++ test -f package.json
++ yarn install --frozen-lockfile
+yarn install v1.22.22
+[1/4] Resolving packages...
+success Already up-to-date.
+Done in 0.11s.
++ yarn build
+yarn run v1.22.22
+$ tsc -b && vite build
+src/components/CssVariablesControl/CssVariablesControl.tsx(2,27): error TS1484: 'ChangeEvent' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/CssVariablesControl/CssVariablesControl.tsx(4,9): error TS1484: 'CssVariable' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/MetaData/Head/MetaHead.tsx(1,10): error TS1484: 'ImageData' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/MetaData/Head/MetaHead.tsx(1,21): error TS1484: 'PageData' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/MetaData/Head/meta_image.tsx(1,10): error TS1484: 'ImageData' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/MetaData/Head/meta_image.tsx(21,11): error TS6133: 'baseUrl' is declared but its value is never read.
+src/components/Navbar/Navbar.tsx(2,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/components/Navbar/Navbar.tsx(3,29): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/components/Navbar/Navbars.tsx(3,1): error TS6133: 'Link' is declared but its value is never read.
+src/components/Navbar/Navbars.tsx(3,18): error TS2307: Cannot find module 'next/link' or its corresponding type declarations.
+src/components/Navbar/Navbars.tsx(4,29): error TS2307: Cannot find module 'next/navigation' or its corresponding type declarations.
+src/components/Navbar/Navbars.tsx(12,54): error TS6133: 'theme' is declared but its value is never read.
+src/components/Navbar/Navbars.tsx(39,41): error TS6133: 'index' is declared but its value is never read.
+src/components/PageHeader/PageHeader.tsx(1,19): error TS2307: Cannot find module 'next/image' or its corresponding type declarations.
+src/components/PageHeader/PageHeader.tsx(2,10): error TS1484: 'PageData' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/Social/Facebook/Share/Button.tsx(2,9): error TS1484: 'SocialShareButtonProps' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/Social/Props/ShareButton.tsx(2,10): error TS2724: '"@interfaces"' has no exported member named 'SocialShareUrlButtonProps'. Did you mean 'SocialShareButtonProps'?
+src/components/Social/Props/ShareButton.tsx(11,3): error TS2339: Property 'platform' does not exist on type 'ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(12,3): error TS2339: Property 'text' does not exist on type 'ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(13,3): error TS2339: Property 'url' does not exist on type 'ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(14,3): error TS2339: Property 'via' does not exist on type 'ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(15,3): error TS2339: Property 'hashtags' does not exist on type 'ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(42,13): error TS2322: Type '{ key: string; platform: string; text: any; url: any; via: any; hashtags: any; }' is not assignable to type 'IntrinsicAttributes & ShareButtonProps'.
+  Property 'platform' does not exist on type 'IntrinsicAttributes & ShareButtonProps'.
+src/components/Social/Props/ShareButton.tsx(54,13): error TS2322: Type '{ key: string; platform: string; text: any; url: any; via: any; hashtags: any; }' is not assignable to type 'IntrinsicAttributes & ShareButtonProps'.
+  Property 'platform' does not exist on type 'IntrinsicAttributes & ShareButtonProps'.
+src/components/Social/X/Share/Button.tsx(2,9): error TS1484: 'SocialShareButtonProps' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/SourceEditor/SourceEditor.tsx(20,11): error TS6196: 'MetadataEditorProps' is declared but never used.
+src/components/Sources/Sources.tsx(3,9): error TS1484: 'MediaSource' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/components/pdfViewer/pdfViewer.tsx(4,19): error TS2307: Cannot find module 'next/image' or its corresponding type declarations.
+src/components/pdfViewer/pdfViewer.tsx(6,10): error TS1484: 'FormatType' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/functions/content_parser.tsx(3,1): error TS6192: All imports in import declaration are unused.
+src/functions/content_parser.tsx(75,38): error TS6133: 'meta' is declared but its value is never read.
+src/functions/content_parser.tsx(75,49): error TS6133: 'filename' is declared but its value is never read.
+src/functions/content_parser.tsx(99,38): error TS6133: 'meta' is declared but its value is never read.
+src/functions/content_parser.tsx(99,49): error TS6133: 'filename' is declared but its value is never read.
+src/functions/content_parser.tsx(112,45): error TS6133: 'filename' is declared but its value is never read.
+src/functions/content_parser.tsx(115,39): error TS6133: 'jsonPath' is declared but its value is never read.
+src/functions/content_parser.tsx(152,21): error TS6133: 'directory' is declared but its value is never read.
+src/functions/content_parser.tsx(152,73): error TS6133: 'background' is declared but its value is never read.
+src/functions/content_parser.tsx(233,54): error TS6133: 'filename' is declared but its value is never read.
+src/functions/content_parser.tsx(270,19): error TS6133: 'style' is declared but its value is never read.
+src/functions/content_parser.tsx(271,19): error TS6133: 'loading' is declared but its value is never read.
+src/functions/index.ts(2,1): error TS2308: Module './content_parser' has already exported a member named 'build_content'. Consider explicitly re-exporting to resolve the ambiguity.
+src/functions/index.ts(4,1): error TS2308: Module './functions.server' has already exported a member named 'get_filename'. Consider explicitly re-exporting to resolve the ambiguity.
+src/functions/path_utils_client.ts(3,49): error TS2307: Cannot find module '@putkoff/abstract-utilities' or its corresponding type declarations.
+src/functions/tdd_fetch_functions.ts(1,9): error TS1484: 'Source' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/layouts/RootLayout.tsx(2,8): error TS2613: Module '"/var/www/TDD/my-app/src/components/Header/index"' has no default export. Did you mean to use 'import { Header } from "/var/www/TDD/my-app/src/components/Header/index"' instead?
+src/layouts/RootLayout.tsx(3,8): error TS2613: Module '"/var/www/TDD/my-app/src/components/Navbar/index"' has no default export. Did you mean to use 'import { Navbar } from "/var/www/TDD/my-app/src/components/Navbar/index"' instead?
+src/layouts/RootLayout.tsx(4,8): error TS2613: Module '"/var/www/TDD/my-app/src/components/Footer/index"' has no default export. Did you mean to use 'import { Footer } from "/var/www/TDD/my-app/src/components/Footer/index"' instead?
+src/pages/_shared/DynamicArticleRoute.tsx(3,25): error TS2307: Cannot find module './ArticlePage' or its corresponding type declarations.
+src/pages/articlepages.tsx(6,1): error TS6133: 'PdfViewer' is declared but its value is never read.
+src/pages/articlepages.tsx(63,49): error TS2345: Argument of type '{ readonly href: "https://thedailydialectics.com"; readonly BASE_URL: "https://thedailydialectics.com"; readonly share_url: "https://thedailydialectics.com/index"; readonly description: "In an age where truths are akin to fiction in the minds of the masses, fiction is a key component in societal control. Reprogram y...' is not assignable to parameter of type 'PageData'.
+  Types of property 'media' are incompatible.
+    The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'MediaItem[]'.
+src/pages/articlepages.tsx(121,20): error TS2322: Type '{ readonly href: "https://thedailydialectics.com"; readonly BASE_URL: "https://thedailydialectics.com"; readonly share_url: "https://thedailydialectics.com/index"; readonly description: "In an age where truths are akin to fiction in the minds of the masses, fiction is a key component in societal control. Reprogram y...' is not assignable to type 'PageData'.
+  Types of property 'media' are incompatible.
+    The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'MediaItem[]'.
+src/pages/index.tsx(6,1): error TS6133: 'PdfViewer' is declared but its value is never read.
+src/pages/index.tsx(63,49): error TS2345: Argument of type '{ readonly href: "https://thedailydialectics.com"; readonly BASE_URL: "https://thedailydialectics.com"; readonly share_url: "https://thedailydialectics.com/index"; readonly description: "In an age where truths are akin to fiction in the minds of the masses, fiction is a key component in societal control. Reprogram y...' is not assignable to parameter of type 'PageData'.
+  Types of property 'media' are incompatible.
+    The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'MediaItem[]'.
+src/pages/index.tsx(121,20): error TS2322: Type '{ readonly href: "https://thedailydialectics.com"; readonly BASE_URL: "https://thedailydialectics.com"; readonly share_url: "https://thedailydialectics.com/index"; readonly description: "In an age where truths are akin to fiction in the minds of the masses, fiction is a key component in societal control. Reprogram y...' is not assignable to type 'PageData'.
+  Types of property 'media' are incompatible.
+    The type 'readonly []' is 'readonly' and cannot be assigned to the mutable type 'MediaItem[]'.
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

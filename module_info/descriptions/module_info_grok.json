@@ -1,0 +1,26 @@
+{
+  "module_directory": "/home/computron/Documents/pythonTools/modules/abstract_react",
+  "module_paths": [
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/__init__.py",
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/abstract_react/__init__.py",
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/abstract_react/abstract_react.py",
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/abstract_react/import_utils.py",
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/abstract_react/replace_utils.py",
+    "/home/computron/Documents/pythonTools/modules/abstract_react/src/abstract_react/utils.py"
+  ],
+  "imports": [
+    "",
+    "abstract_utilities",
+    "abstract_webserver",
+    "json",
+    "pathlib",
+    "typing"
+  ],
+  "meta_data": {},
+  "src/abstract_react/replace_utils.py": "Description of script based on prompt: You are analyzing a Python script 'replace_utils.p (mock response)",
+  "src/abstract_react/__init__.py": "Description of script based on prompt: You are analyzing a Python script '__init__.py' lo (mock response)",
+  "src/abstract_react/import_utils.py": "Description of script based on prompt: You are analyzing a Python script 'import_utils.py (mock response)",
+  "src/__init__.py": "Description of script based on prompt: You are analyzing a Python script '__init__.py' lo (mock response)",
+  "src/abstract_react/utils.py": "Description of script based on prompt: You are analyzing a Python script 'utils.py' locat (mock response)",
+  "src/abstract_react/abstract_react.py": "Description of script based on prompt: You are analyzing a Python script 'abstract_react. (mock response)"
+}
