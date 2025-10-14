@@ -24,6 +24,8 @@ src/abstract_react/build_utils/src/file_utils.py
 src/abstract_react/build_utils/src/fixit.py
 src/abstract_react/build_utils/src/fixit_utils.py
 src/abstract_react/build_utils/src/path_utils.py
+src/abstract_react/build_utils/src/parse_utils/__init__.py
+src/abstract_react/build_utils/src/parse_utils/project_parsr.py
 src/abstract_react/imports/__init__.py
 src/abstract_react/imports/constants.py
 src/abstract_react/imports/imports.py
