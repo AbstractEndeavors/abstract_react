@@ -1,1 +1,1 @@
-from project_parsr import *
+from .project_parsr import *

@@ -62,24 +62,4 @@ def create_base_dir(path):
     if not os.path.exists(base_path):
         base_path = create_dirs(BASE_DIR,path)
     return base_path
-src_path = '/var/www/presites/abstractendeavors/react/temp'
-go=False
-for part in text.split('###')[1:]:
-    post_line = part.split('\n')[0]
 
-    go=True
-    if go == True:
-        post_src = post_line.split('(')[1].split(')')[0].split('`')[1].split('src/')[-1]
-        path = os.path.join(src_path,post_src)
-        dirname = os.path.dirname(path)
-        if not os.path.exists(dirname):
-            create_dirs(src_path,post_src)
-        basename = os.path.basename(path)
-        filename,ext = os.path.splitext(basename)
-        dirbase = os.path.join(dirname,filename)
-        os.makedirs(dirbase,exist_ok=True)
-        index_path = os.path.join(dirbase,'index.ts')
-        base_path = os.path.join(dirbase,basename)
-
-        contents = part.split('```')[1]
-     
