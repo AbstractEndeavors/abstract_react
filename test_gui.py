@@ -18,4 +18,3 @@ graph_wrkr = ImportGraphWorker(
         
     )
 graph_wrkr.run()
-input(graph_wrkr.graph)

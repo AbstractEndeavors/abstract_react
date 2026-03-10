@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: abstract_react
-Version: 0.0.0.51
+Version: 0.0.0.81
 Home-page: https://github.com/AbstractEndeavors/abstract_react
 Author: putkoff
 Author-email: partners@abstractendeavors.com
@@ -19,7 +19,10 @@ Classifier: Programming Language :: Python :: 3.12
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 Requires-Dist: abstract_utilities
+Requires-Dist: abstract_queries
 Requires-Dist: abstract_webserver
+Requires-Dist: wordsegment
+Requires-Dist: abstract_flask
 Dynamic: author
 Dynamic: author-email
 Dynamic: classifier

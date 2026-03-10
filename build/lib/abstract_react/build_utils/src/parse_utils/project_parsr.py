@@ -1,13 +1,75 @@
 from abstract_utilities import *
-def create_dirs(basePath,nuPath):
-    full_path = os.path.join(basePath,nuPath)
-    if not os.path.exists(full_path):
-        full_path = basePath
-        pieces = [piece for piece in path.split('/') if piece]
-        for piece in pieces:
-            full_path = os.path.join(full_path,piece)
-            os.makedirs(full_path,exist_ok=True)
-    return full_path
+
+_BASE_DIR = get_caller_dir()
+
+def safe_split(string, char, i=None, default=False):
+    """Safely split a string by a character and optionally return index i."""
+    if string is None or char is None:
+        return string
+
+    string_str, char_str = str(string), str(char)
+    if char_str not in string_str:
+        return string
+
+    parts = string_str.split(char_str)
+
+    if i is None:
+        return parts
+
+    if is_number(i):
+        i = int(i)
+        if i < len(parts):
+            return parts[i]
+        if default:
+            return string if default is True else default
+        return
+    return string if default is True else default
+
+
+def safe_slice(obj, i=None, k=None, default=False):
+    """Safely slice an object like a list or string with defaults."""
+    if obj is None or isinstance(obj, bool):
+        return obj if default is True else default if default else None
+
+    obj_len = len(obj)
+
+    # If no indices provided, return as is (or default)
+    if i is None and k is None:
+        return obj if default is True else default if default else None
+
+    # Normalize negative indices
+    if isinstance(i, int) and i < 0:
+        i = obj_len + i
+    if isinstance(k, int) and k < 0:
+        k = obj_len + k
+
+    # Bound indices
+    if i is not None:
+        i = max(0, min(i, obj_len))
+    if k is not None:
+        k = max(0, min(k, obj_len))
+
+    try:
+        return obj[i:k]
+    except Exception:
+        return obj if default is True else default if default else None
+def safe_join(*paths):
+    paths = list(paths)
+    paths = [path for path in paths if path]
+    return os.path.join(*paths)
+def get_inside(text,char):
+    parts = text.split(char)
+
+    part = safe_slice(parts,1,-1) or []
+    return char.join(part)
+def get_insides(text,char):
+    parts = safe_split(text,char)
+    returns = []
+    for i,part in enumerate(parts):
+        if i !=0 and i%2 != float(0):
+            returns.append(part)
+    return returns
+
 def get_content_lines(contents=None,filepath=None):
     if not contents and filepath and os.path.isfile(filepath):
         contents = read_from_file(filepath)
@@ -54,12 +116,32 @@ def create_script_dir(contents=None,file_path=None,script_dir=None):
     index_path = os.path.join(dirbase,'index.ts')
     base_path = os.path.join(dirbase,basename)
     write_to_file(contents=contents,file_path=base_path)
-    write_to_file(contents=index_cont,file_path=index_path) 
-def create_base_path(path):
-    return os.path.join(BASE_DIR,path)
-def create_base_dir(path):
-    base_path = create_base_path(path)
-    if not os.path.exists(base_path):
-        base_path = create_dirs(BASE_DIR,path)
+    write_to_file(contents=index_cont,file_path=index_path)
+
+def raw_create_dirs(*paths):
+    full_path = safe_join(*paths)
+    partial_paths = full_path.split('/')
+    paths = [path for path in partial_paths if path]
+    for i,path in enumerate(paths):
+        if i == 0:
+            full_path = path
+        else:
+            full_path = safe_join(full_path,path)
+        os.makedirs(full_path,exist_ok=True)
+    return full_path
+def create_dirs(directory,child=None):
+    full_path = safe_join(directory,child)
+    if not os.path.exists(full_path):
+        full_path = raw_create_dirs(full_path)
+    return full_path
+def get_base_dir(directory = None):
+    return directory or _BASE_DIR
+def create_base_path(directory=None,child=None):
+    directory = get_base_dir(directory = directory)
+    return safe_join(directory,child)
+def create_base_dir(directory=None,child=None):
+    full_path = create_base_path(directory=directory,child=child)
+    if not os.path.exists(full_path):
+        base_path = create_dirs(full_path)
     return base_path
 

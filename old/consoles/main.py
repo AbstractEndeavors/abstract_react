@@ -2,11 +2,13 @@ from .functionsTab import _FunctionsTab
 
 from .runnerTab import runnerTab
 from abstract_gui import startConsole
+from abstract_utilities.import_utils import initFuncs
 from abstract_gui import*  # << add
 # Content Finder = the nested group you built (Find Content, Directory Map, Collect, Imports, Diff)
 class reactRunnerConsole(ConsoleBase):
     def __init__(self, *, bus=None, parent=None):
         super().__init__(bus=bus, parent=parent)
+        initFuncs(self)
         inner = QTabWidget()
         self.layout().addWidget(inner)
         install_qt_logging() 

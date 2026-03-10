@@ -78,3 +78,6 @@ REACT_DEFAULT_CFG = define_defaults(
 
 
 REACT_ALLOWED = make_allowed_predicate(cfg=REACT_DEFAULT_CFG)
+ATTR_RE = re.compile(r'([a-zA-Z0-9:_-]+)\s*=\s*([\'"`])([^\'"`]+)\2')
+TAG_OPEN_RE = re.compile(r'<\s*([a-zA-Z0-9:_-]+)')
+TAG_CONTENT_RE = re.compile(r'<\s*([a-zA-Z0-9:_-]+)[^>]*>(.*?)</\s*\1\s*>', re.DOTALL)

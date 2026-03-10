@@ -1,2 +1,5 @@
 abstract_utilities
+abstract_queries
 abstract_webserver
+wordsegment
+abstract_flask

@@ -78,7 +78,8 @@ def parse_tsc_output(
 
     entries = []
     pending = None
-    for line in text.splitlines():
+    lines = text.split('\n')
+    for line in lines:
         m = pat1.match(line) or pat2.match(line)
         if m:
             d = m.groupdict()

@@ -1,7 +1,6 @@
 # functions_console.py
-from .imports import QWidget,pyqtSignal
+from .imports import QWidget,pyqtSignal,initFuncs
 
-from .initFuncs import initFuncs
 # --- Console ---------------------------------------------------------------
 # functionsTab/main.py
 
@@ -11,6 +10,7 @@ class functionsTab(QWidget):
     scanRequested   = pyqtSignal(str)
     def __init__(self, parent=None, use_flow=False):
         super().__init__(parent)
+        initFuncs(self)
         self.func_map = {}
         self.init_path= '/var/www/html/clownworld/bolshevid'
         self.fn_filter_mode = "io"

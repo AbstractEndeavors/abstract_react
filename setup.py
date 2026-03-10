@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='abstract_react',
-    version='0.0.0.51',
+    version='0.0.0.81',
     author='putkoff',
     author_email='partners@abstractendeavors.com',
     description="",
@@ -25,7 +25,7 @@ setuptools.setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
     ],
-    install_requires=['abstract_utilities','abstract_webserver'],
+    install_requires=['abstract_utilities','abstract_queries','abstract_webserver','wordsegment','abstract_flask'],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
