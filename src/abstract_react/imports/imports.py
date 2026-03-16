@@ -1,8 +1,7 @@
 import argparse,json,os,re,traceback,shlex,subprocess
 from pathlib import Path
 from typing import *
-from PyQt6.QtWidgets import QStackedWidget, QSplitter, QWidget, QVBoxLayout, QHBoxLayout, QLabel,QTreeWidget, QTreeWidgetItem, QHeaderView, QButtonGroup
-from PyQt6.QtCore import QThread, pyqtSignal
+
 from abstract_utilities.file_utils import (
     define_defaults,
     collect_filepaths,
