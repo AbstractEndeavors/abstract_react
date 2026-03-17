@@ -1,4 +1,34 @@
-from imports.src.abstract_react.meta_utils.apis.metadata import *
+from pathlib import Path
+from PIL import Image
+from abstract_webtools import *
+_FORMAT_TO_MIME = {
+    "JPEG": "image/jpeg",
+    "PNG":  "image/png",
+    "GIF":  "image/gif",
+    "WEBP": "image/webp",
+    "BMP":  "image/bmp",
+    "TIFF": "image/tiff",
+}
+
+
+def get_image_info(path: str | None) -> dict:
+    """Returns actual width, height, mime from the file. Safe defaults if anything fails."""
+    out = {"width": "1200", "height": "627", "mime": "image/jpeg"}
+
+    if not path or not Path(path).is_file():
+        return out
+
+    try:
+        with Image.open(path) as img:
+            w, h = img.size
+            fmt = img.format or ""
+        out["width"] = str(w)
+        out["height"] = str(h)
+        out["mime"] = _FORMAT_TO_MIME.get(fmt, "image/jpeg")
+    except Exception:
+        pass
+
+    return out
 def get_parsed_url(domain, **kwargs):
     parsed_url = dict(kwargs)
     post_variants = []
@@ -71,10 +101,3 @@ def get_parsed_url(domain, **kwargs):
         parsed_url["title_variants"] = final_variants
    
     return parsed_url
-domain="abstractendeavors.com"
-info = getInfo(domain=domain)
-info = get_parsed_url(**info)
-meta_info = get_meta_info(info)
-input(info)
-
-input(meta_info)

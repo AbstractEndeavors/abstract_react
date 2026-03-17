@@ -62,9 +62,12 @@ src/abstract_react/imports/imports.py
 src/abstract_react/meta_utils/__init__.py
 src/abstract_react/meta_utils/apis/__init__.py
 src/abstract_react/meta_utils/apis/metadata/__init__.py
+src/abstract_react/meta_utils/apis/metadata/domain_resolver.py
+src/abstract_react/meta_utils/apis/metadata/image_resolver.py
 src/abstract_react/meta_utils/apis/metadata/metadata.py
 src/abstract_react/meta_utils/apis/metadata/metavariables.py
 src/abstract_react/meta_utils/apis/metadata/test.py
+src/abstract_react/meta_utils/apis/metadata/tester.py
 src/abstract_react/meta_utils/apis/social_sharing/__init__.py
 src/abstract_react/meta_utils/apis/social_sharing/social_params.py
 src/abstract_react/meta_utils/apis/social_sharing/social_sharing.py

@@ -1,6 +1,7 @@
 from ...imports import *
 from ...images.image_utils import *
 from abstract_utilities.type_utils import *
+from .image_resolver import *
 INFO_KEYS = ["info","meta","metadata","meta_data","keywords","keywords_str","title",'path',"share_url","domain","thumbnail","thumbnail_link","thumbnail_alt","thumbnail_resized","thumbnail_url_resized",'languages',"description"]
 BOOL_KEYS = ["app","player_url","feed_url","geo","languages"]
 
@@ -390,18 +391,30 @@ def generate_meta_tags(meta, base_url=None, json_path=None):
 
 def get_meta_info(info=None,app=False,player_url=False,feed_url=False,geo=False,languages=False,**kwargs):
     info = info
-    title_variants = info.get("title_variants")
+    
     path=info.get('path')
     domain = info.get("domain")
-    full_url = info.get('variants')[0]
+    title = info.get('title')
+    app_name = info.get('app_name')
+    domain_name = info.get('name')
+    any_domain = domain or domain_name or app_name or title
+    
+    tokenized_domain = info.get('tokenized_domain')
+    any_variants = info.get('variants') or info.get("title_variants")
+    
+    if not any_variants and any_domain:
+        any_variants = title_variants_from_domain(any_domain)
+    title_variants = info.get("title_variants") or any_variants
+    variants = info.get("variants") or title_variants
+    full_url = any_domain or title_variants[0]
     share_url = info.get("share_url",full_url)
     canonical = full_url
-    domain_name = info.get('name')
-    tokenized_domain = info.get('tokenized_domain')
-    app_name = info.get('app_name')
+
+    
+    
     author = info.get('author')
     i_url = info.get('i_url')
-    title = info.get('title')
+    
     description = info.get('description')
     href = info.get('href', '')
     keywords_str = info.get("keywords_str")
@@ -446,14 +459,16 @@ def get_meta_info(info=None,app=False,player_url=False,feed_url=False,geo=False,
             # Fallback if validation fails
             thumbnail_resized = os.path.join(path,'/public/imgs/default_thumbnail.jpg')
             thumbnail_url_resized = get_dir_link(thumbnail_resized)
-
+    
     # Update info with resized values
     info['thumbnail_resized'] = thumbnail_resized
     info['thumbnail_url_resized'] = thumbnail_url_resized
-
+    
     mobile_url = share_url.replace("https://", "https://m.")
     oembed_url = f"{domain}/oembed?url={share_url}"
-
+    actual_image = thumbnail_url_resized or thumbnail_link
+    actual_path = thumbnail_resized or thumbnail
+    img_info = get_image_info(actual_path)
     metadata = {
         "title": pad_or_trim("title", title,title_variants=title_variants),
         "description_html": pad_or_trim("description", description,title_variants=title_variants),
@@ -471,11 +486,11 @@ def get_meta_info(info=None,app=False,player_url=False,feed_url=False,geo=False,
             "title": pad_or_trim("title", title, "og",title_variants=title_variants),
             "description": pad_or_trim("description", description, "og",title_variants=title_variants),
             "url": share_url,
-            "image": thumbnail_url_resized or thumbnail_link,  # Prioritize resized
             "image_alt": pad_or_trim("alt", thumbnail_alt, "og",title_variants=title_variants),
-            "image_width": "1200",
-            "image_height": "627",
-            "image_type": "image/jpeg",
+            "image": actual_image,
+            "image_width": img_info["width"],
+            "image_height": img_info["height"],
+            "image_type": img_info["mime"],
             "locale": "en_US",
             "fb_app_id": "427305388009806",
             "site_name": app_name,
@@ -495,9 +510,9 @@ def get_meta_info(info=None,app=False,player_url=False,feed_url=False,geo=False,
             "site:id": info.get("twitter_site_id", "123456789"),  # Replace with actual ID
             "creator": author,
             "creator:id": info.get("twitter_creator_id", "123456789"),  # Replace with actual ID
-            "image": thumbnail_url_resized or thumbnail_link,  # Prioritize resized
+            "image": actual_image,
             "image_alt": pad_or_trim("alt", thumbnail_alt, "twitter",title_variants=title_variants),
-            "image_type": "image/jpeg",
+            "image_type": img_info["mime"],
             "domain": domain
         },
         "other": {
