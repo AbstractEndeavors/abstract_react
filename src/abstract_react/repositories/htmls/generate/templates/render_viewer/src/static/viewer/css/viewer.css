@@ -1,0 +1,373 @@
+/* =========================
+   VIEWER ROOT (scoped)
+   ========================= */
+.viewer-root {
+  --bg: #0d0d0d;
+  --surface: #1a1a1a;
+  --surface2: #222;
+  --text: #e0e0e0;
+  --muted: #888;
+  --accent: #7aaeff;
+  --thumb-w: 110px;
+
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  contain: layout style paint;
+}
+
+.viewer-root * {
+  box-sizing: border-box;
+}
+
+/* =========================
+   TOP BAR
+   ========================= */
+.viewer-root .topbar {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .5rem .8rem;
+  background: var(--surface);
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.viewer-root .topbar a.home {
+  color: var(--muted);
+  font-size: .8rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.viewer-root .topbar a.home:hover {
+  color: var(--text);
+}
+
+.viewer-root .topbar h1 {
+  font-size: .95rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================
+   FORMAT BUTTONS
+   ========================= */
+.viewer-root .fmt-btns {
+  display: flex;
+  gap: .3rem;
+}
+
+.viewer-root .fmt-btn {
+  background: var(--surface2);
+  border: 1px solid #444;
+  color: var(--muted);
+  padding: .25rem .6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: .8rem;
+}
+
+.viewer-root .fmt-btn.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+/* =========================
+   SEARCH
+   ========================= */
+.viewer-root .search-wrap {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.viewer-root [data-role="search"] {
+  background: var(--surface2);
+  border: 1px solid #444;
+  color: var(--text);
+  padding: .25rem .5rem;
+  border-radius: 4px;
+  font-size: .8rem;
+  width: 160px;
+}
+
+.viewer-root [data-role="search-status"] {
+  font-size: .75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* =========================
+   MAIN LAYOUT
+   ========================= */
+.viewer-root .main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* =========================
+   THUMBNAILS
+   ========================= */
+.viewer-root [data-role="thumbs"] {
+  width: var(--thumb-w);
+  background: var(--surface);
+  border-right: 1px solid #333;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+  padding: .4rem 0;
+}
+
+.viewer-root .thumb-item {
+  cursor: pointer;
+  padding: .3rem;
+  border-bottom: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+}
+
+.viewer-root .thumb-item:hover {
+  background: #252525;
+}
+
+.viewer-root .thumb-item.active {
+  background: #1e2d4a;
+  border-left: 3px solid var(--accent);
+}
+
+.viewer-root .thumb-item img {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+  background: #111;
+}
+
+.viewer-root .thumb-item .pnum {
+  font-size: .65rem;
+  color: var(--muted);
+}
+
+.viewer-root .thumb-placeholder {
+  width: 90px;
+  height: 120px;
+  background: #222;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .7rem;
+  color: var(--muted);
+}
+
+/* =========================
+   VIEWER CONTENT
+   ========================= */
+.viewer-root .viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* =========================
+   ABSTRACT BAR
+   ========================= */
+.viewer-root .abstract-bar {
+  background: #111;
+  border-bottom: 1px solid #2a2a2a;
+  padding: .5rem 1rem;
+  font-size: .8rem;
+  color: #999;
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  flex-shrink: 0;
+}
+
+.viewer-root .abstract-bar p {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.viewer-root .abstract-bar .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  margin-top: .3rem;
+}
+
+.viewer-root .abstract-bar .tag {
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 3px;
+  padding: .1rem .4rem;
+  font-size: .68rem;
+  color: #666;
+}
+
+.viewer-root .abstract-toggle {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: .75rem;
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.viewer-root .abstract-toggle:hover {
+  color: var(--text);
+}
+
+/* =========================
+   NAV BAR
+   ========================= */
+.viewer-root .nav-bar {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .7rem;
+  background: var(--surface2);
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.viewer-root .nav-bar button {
+  background: var(--surface);
+  border: 1px solid #444;
+  color: var(--text);
+  padding: .2rem .55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+.viewer-root .nav-bar button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.viewer-root [data-role="page-display"] {
+  font-size: .85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* =========================
+   CONTENT AREA
+   ========================= */
+.viewer-root [data-role="content"] {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.viewer-root .pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  min-height: 600px;
+}
+
+.viewer-root .img-view {
+  max-width: 860px;
+  width: 100%;
+}
+
+.viewer-root .img-view img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.viewer-root .txt-view {
+  max-width: 860px;
+  width: 100%;
+}
+
+.viewer-root .txt-view pre {
+  white-space: pre-wrap;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: #ccc;
+  font-family: monospace;
+}
+
+.viewer-root .txt-view mark {
+  background: #7aaeff44;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* =========================
+   SEARCH RESULTS
+   ========================= */
+.viewer-root .hit-item {
+  background: var(--surface);
+  border-radius: 6px;
+  padding: .6rem .8rem;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+.viewer-root .hit-item:hover {
+  border-color: var(--accent);
+}
+
+.viewer-root .hit-page {
+  font-size: .75rem;
+  color: var(--accent);
+  margin-bottom: .2rem;
+}
+
+.viewer-root .hit-snippet {
+  font-size: .8rem;
+  color: var(--muted);
+  font-family: monospace;
+}
+
+.viewer-root .hit-snippet mark {
+  background: #7aaeff44;
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 600px) {
+  .viewer-root {
+    --thumb-w: 70px;
+  }
+
+  .viewer-root .thumb-item img {
+    width: 60px;
+    height: 80px;
+  }
+
+  .viewer-root .search-wrap {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+<nav class="breadcrumb">
+  {% for c in breadcrumbs -%}
+    {% if c.href %}<a href="{{ c.href }}">{{ c.label }}</a>{% else %}<span>{{ c.label }}</span>{% endif %}
+    {%- if not loop.last %} › {% endif %}
+  {%- endfor %}
+</nav>
+
+<div class="container">
+  <h1>{{ entry.title }}</h1>
+
+  <div class="img-wrap">
+    <img src="{{ entry.schema.contentUrl or entry.schema.url }}"
+         alt="{{ entry.alt }}"
+         width="{{ entry.dimensions.width }}"
+         height="{{ entry.dimensions.height }}" />
+  </div>
+
+  <p class="caption">{{ entry.display_caption }}</p>
+  <p class="description">{{ entry.longdesc }}</p>
+
+  <div class="tags">
+    {% for kw in entry.keywords_list %}<span class="tag">{{ kw }}</span>{% endfor %}
+  </div>
+
+  <div class="meta-row">
+    License: {{ entry.license }}
+     · {{ entry.attribution }}
+     · <a href="{{ entry.schema.contentUrl or entry.schema.url }}" target="_blank" rel="noopener">Full image</a>
+  </div>
+</div>

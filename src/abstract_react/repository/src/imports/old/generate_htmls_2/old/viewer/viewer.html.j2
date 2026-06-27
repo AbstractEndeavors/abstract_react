@@ -1,0 +1,248 @@
+{# viewer.html.j2 — PDF viewer page for a single document #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | thedailydialectics</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="{{ keywords }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ first_thumb }}">
+  <script type="application/ld+json">{{ schema_json }}</script>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/viewer-app.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="home" href="{{ site_root }}">← Home</a>
+  <span style="color:#444">/</span>
+  <h1>{{ title }}</h1>
+  <div class="fmt-btns">
+    <button class="fmt-btn active" id="btn-pdf"    onclick="setFormat('pdf')">PDF</button>
+    <button class="fmt-btn"        id="btn-images" onclick="setFormat('images')">Images</button>
+    <button class="fmt-btn"        id="btn-text"   onclick="setFormat('text')">Text</button>
+  </div>
+  <div class="search-wrap">
+    <input id="search-input" type="search" placeholder="Search text… (Ctrl+F)" autocomplete="off">
+    <span id="search-status"></span>
+  </div>
+</div>
+
+<div class="abstract-bar" id="abstract-bar">
+  <div style="flex:1">
+    <p id="abstract-text">{{ description }}</p>
+    <div class="tags" id="kw-tags"></div>
+  </div>
+  <span class="abstract-toggle" onclick="toggleAbstract()">▲ hide</span>
+</div>
+
+<div class="main">
+  <div class="thumbs" id="thumbs"></div>
+  <div class="viewer">
+    <div class="nav-bar">
+      <button id="btn-first" onclick="goPage(1)" title="First">⏮</button>
+      <button id="btn-prev"  onclick="goPage(cur-1)" title="Previous (←)">◀</button>
+      <span id="page-display">Page 1 / {{ total }}</span>
+      <button id="btn-next"  onclick="goPage(cur+1)" title="Next (→)">▶</button>
+      <button id="btn-last"  onclick="goPage({{ total }})" title="Last">⏭</button>
+      <a id="download-link" target="_blank" rel="noopener"
+         style="margin-left:auto;font-size:.8rem;color:var(--accent);text-decoration:none">
+        ⬇ Download PDF
+      </a>
+    </div>
+    <div class="nav-bar" id="page-info-bar" style="display:none; gap: 1rem; padding: .5rem .8rem;">
+      <span style="font-size:.8rem; color:var(--muted)">Page metadata:</span>
+      <span id="page-title" style="font-size:.85rem; color:var(--text); flex:1;"></span>
+      <span id="page-keywords" style="font-size:.75rem; color:var(--accent);"></span>
+    </div>
+    <div class="content" id="content-area">
+      <iframe id="pdf-frame" src="" title="{{ title }}"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+const PAGES = {{ pages_json }};
+const TOTAL = {{ total }};
+const KEYWORDS = {{ keywords_json }};
+const PDF_FILENAME = {{ pdf_filename_json }};
+let cur = 1;
+let fmt = 'pdf';
+
+(function() {
+  const tags = document.getElementById('kw-tags');
+  KEYWORDS.forEach(kw => {
+    const s = document.createElement('span');
+    s.className = 'tag';
+    s.textContent = kw;
+    tags.appendChild(s);
+  });
+  
+  // Set download link to PDF
+  document.getElementById('download-link').href = './' + PDF_FILENAME;
+})();
+
+function toggleAbstract() {
+  const bar = document.getElementById('abstract-bar');
+  const btn = bar.querySelector('.abstract-toggle');
+  const content = bar.querySelector('div');
+  if (content.style.display === 'none') {
+    content.style.display = '';
+    btn.textContent = '▲ hide';
+  } else {
+    content.style.display = 'none';
+    btn.textContent = '▼ show info';
+  }
+}
+
+function buildThumbs() {
+  const strip = document.getElementById('thumbs');
+  strip.innerHTML = PAGES.map(p => `
+    <div class="thumb-item ${p.n===1?'active':''}" id="thumb-${p.n}"
+         onclick="goPage(${p.n})">
+      ${p.thumb
+        ? `<img src="${p.thumb}" alt="${p.alt}" loading="lazy">`
+        : `<div class="thumb-placeholder">p${p.n}</div>`}
+      <span class="pnum">${p.n}</span>
+    </div>`).join('');
+}
+
+function updateThumb(n) {
+  document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById('thumb-' + n);
+  if (el) {
+    el.classList.add('active');
+    el.scrollIntoView({ block: 'nearest' });
+  }
+}
+
+function setFormat(f) {
+  fmt = f;
+  ['pdf','images','text'].forEach(id => {
+    document.getElementById('btn-'+id).classList.toggle('active', id===f);
+  });
+  renderContent();
+}
+
+function goPage(n) {
+  n = Math.max(1, Math.min(TOTAL, n));
+  cur = n;
+  document.getElementById('page-display').textContent = `Page ${n} / ${TOTAL}`;
+  document.getElementById('btn-prev').disabled  = n <= 1;
+  document.getElementById('btn-first').disabled = n <= 1;
+  document.getElementById('btn-next').disabled  = n >= TOTAL;
+  document.getElementById('btn-last').disabled  = n >= TOTAL;
+  updateThumb(n);
+  updatePageInfo(n);
+  renderContent();
+}
+
+function updatePageInfo(n) {
+  const page = PAGES[n - 1];
+  const infoBar = document.getElementById('page-info-bar');
+  
+  // Only show info bar if page has custom title or different keywords
+  if (page.page_title || page.page_keywords) {
+    infoBar.style.display = 'flex';
+    document.getElementById('page-title').textContent = page.page_title || '(default)';
+    document.getElementById('page-keywords').textContent = page.page_keywords ? '→ ' + page.page_keywords : '';
+  } else {
+    infoBar.style.display = 'none';
+  }
+  
+  // Update meta tags for social sharing (og:image)
+  if (page.thumb) {
+    document.querySelector('meta[property="og:image"]').setAttribute('content', page.thumb);
+  }
+}
+
+function escHtml(s) {
+  return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function highlight(text, q) {
+  if (!q) return '<pre>' + escHtml(text) + '</pre>';
+  const rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return '<pre>' + escHtml(text).replace(rx, '<mark>$1</mark>') + '</pre>';
+}
+
+function renderContent() {
+  const area  = document.getElementById('content-area');
+  const page  = PAGES[cur - 1];
+  const query = document.getElementById('search-input').value.trim();
+
+  if (fmt === 'pdf') {
+    area.innerHTML = `<iframe id="pdf-frame" src="./${PDF_FILENAME}#page=${cur}"
+                        title="PDF viewer" style="width:100%;height:100%;border:none;min-height:600px"></iframe>`;
+  } else if (fmt === 'images') {
+    area.innerHTML = page.thumb
+      ? `<div id="img-view"><img src="${page.thumb}" alt="${page.alt}"></div>`
+      : `<p style="color:var(--muted);padding:2rem">No image for page ${cur}</p>`;
+  } else if (fmt === 'text') {
+    area.innerHTML = `<div id="txt-view">${highlight(page.text || '(no text)', query)}</div>`;
+    const mark = area.querySelector('mark');
+    if (mark) mark.scrollIntoView({ block:'center', behavior:'smooth' });
+  }
+}
+
+let searchTimer = null;
+document.getElementById('search-input').addEventListener('input', function() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => runSearch(this.value.trim()), 250);
+});
+
+function runSearch(q) {
+  const status = document.getElementById('search-status');
+  const area   = document.getElementById('content-area');
+  if (!q) { status.textContent = ''; renderContent(); return; }
+
+  fmt = 'text';
+  ['pdf','images','text'].forEach(id =>
+    document.getElementById('btn-'+id).classList.toggle('active', id==='text'));
+
+  const lc = q.toLowerCase();
+  const hits = [];
+  for (const p of PAGES) {
+    const idx = (p.text || '').toLowerCase().indexOf(lc);
+    if (idx !== -1) {
+      const start = Math.max(0, idx-60);
+      const end   = Math.min(p.text.length, idx+lc.length+60);
+      hits.push({ page: p.n, snippet: p.text.slice(start,end) });
+    }
+  }
+
+  status.textContent = hits.length ? `${hits.length} hit(s)` : 'no results';
+  if (hits.length === 0) {
+    area.innerHTML = `<p style="color:var(--muted);padding:2rem">No results for "${escHtml(q)}"</p>`;
+    return;
+  }
+
+  const rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  area.innerHTML = `<div id="hits-panel">` +
+    hits.map(h => `
+      <div class="hit-item" onclick="goPage(${h.page});setFormat('text')">
+        <div class="hit-page">Page ${h.page}</div>
+        <div class="hit-snippet">${escHtml(h.snippet).replace(rx,'<mark>$1</mark>')}</div>
+      </div>`).join('') +
+    `</div>`;
+}
+
+document.addEventListener('keydown', e => {
+  if (document.activeElement === document.getElementById('search-input')) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goPage(cur+1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goPage(cur-1);
+  if ((e.ctrlKey||e.metaKey) && e.key==='f') {
+    e.preventDefault();
+    document.getElementById('search-input').focus();
+  }
+});
+
+buildThumbs();
+goPage(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../static/viewer/viewer.css">
+</head>
+<body>
+
+<div class="viewer-root" data-config='{{ viewer_config_json|safe }}'>
+
+  <div class="nav-bar">
+    <button data-nav="prev">◀</button>
+    <span data-role="page-display"></span>
+    <button data-nav="next">▶</button>
+  </div>
+
+  <div data-role="content"></div>
+
+</div>
+
+<script type="module" src="../static/viewer/viewer.js"></script>
+
+</body>
+</html>

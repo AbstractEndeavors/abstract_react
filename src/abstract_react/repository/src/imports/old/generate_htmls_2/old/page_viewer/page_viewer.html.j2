@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ document_keywords }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ image_url }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ image_url }}">
+    
+    <!-- Canonical and Schema -->
+    <link rel="canonical" href="{{ canonical_url }}">
+    <script type="application/ld+json">{{ schema_json }}</script>
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/document-viewer.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="{{ site_root }}">Home</a> › 
+                <a href="{{ index_url }}">{{ document_title }}</a> › 
+                <span>Page {{ page_num }}</span>
+            </div>
+            <h1 class="page-heading" style="font-size: 1.5rem; margin: 0.5rem 0;">{{ document_title }}</h1>
+            <p class="doc-title">Page {{ page_num }} of {{ total_pages }}</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="page-counter">Page {{ page_num }} of {{ total_pages }}</div>
+        
+        {% if image_url %}
+        <div class="page-image">
+            <img src="{{ image_url }}" alt="{{ image_alt }}" loading="lazy">
+        </div>
+        {% endif %}
+        
+        {% if ocr_text %}
+        <div class="ocr-text">
+            <h3>Page Content (OCR)</h3>
+            <p>{{ ocr_text }}</p>
+        </div>
+        {% endif %}
+        
+        <nav class="navigation">
+            {% if prev_url %}
+            <a href="{{ prev_url }}" class="nav-button">
+                <span class="nav-label">← Previous</span>
+                <span class="nav-text">Page {{ page_num - 1 }}</span>
+            </a>
+            {% else %}
+            <div class="nav-button disabled">
+                <span class="nav-label">← Previous</span>
+                <span class="nav-text">—</span>
+            </div>
+            {% endif %}
+            
+            <a href="{{ index_url }}" class="nav-button">
+                <span class="nav-label">Back to</span>
+                <span class="nav-text">Document</span>
+            </a>
+            
+            {% if next_url %}
+            <a href="{{ next_url }}" class="nav-button">
+                <span class="nav-label">Next →</span>
+                <span class="nav-text">Page {{ page_num + 1 }}</span>
+            </a>
+            {% else %}
+            <div class="nav-button disabled">
+                <span class="nav-label">Next →</span>
+                <span class="nav-text">—</span>
+            </div>
+            {% endif %}
+        </nav>
+    </div>
+    
+    <footer>
+        <p>{{ document_title }} — Page {{ page_num }} of {{ total_pages }}</p>
+    </footer>
+</body>
+</html>

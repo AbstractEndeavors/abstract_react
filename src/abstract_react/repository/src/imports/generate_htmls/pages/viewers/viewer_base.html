@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "viewer/meta.html" %}
+
+  <link rel="stylesheet" href="{{ viewer_css_url or '/assets/css/pdf-viewer/viewer.css' }}">
+
+  {% if viewer_theme_vars %}
+  <style>
+    :root {
+      {{ viewer_theme_vars | safe }}
+    }
+  </style>
+  {% endif %}
+
+  <style>
+    /* sidebar collapse — kept here so it works even before viewer.css is updated.
+       move into viewer.css and delete this block once you've merged it. */
+    .app.is-sidebar-collapsed > .sidebar { display: none; }
+    .app.is-sidebar-collapsed { grid-template-columns: 1fr; }
+    .btn-sidebar { font-size: 1.1rem; line-height: 1; }
+  </style>
+</head>
+<body>
+  <script>
+    window.__VIEWER_CONFIG__ = {{ viewer_config_json | safe }};
+  </script>
+
+  {% include "viewer/body.html" %}
+
+  <script src="{{ viewer_js_url or '/assets/js/pdf-viewer/page-viewer.js' }}" defer></script>
+
+  <script>
+    (function () {
+      var app = document.querySelector('.app');
+      var btn = document.getElementById('btn-sidebar');
+      if (!app || !btn) return;
+
+      var KEY = 'viewer.sidebar.collapsed';
+      var stored = null;
+      try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+      // default collapsed on first visit; persisted choice wins after that
+      var collapsed = (stored === null) ? true : (stored === '1');
+      apply(collapsed);
+
+      btn.addEventListener('click', function () {
+        collapsed = !collapsed;
+        apply(collapsed);
+        try { localStorage.setItem(KEY, collapsed ? '1' : '0'); } catch (e) {}
+      });
+
+      function apply(c) {
+        app.classList.toggle('is-sidebar-collapsed', c);
+        btn.setAttribute('aria-expanded', c ? 'false' : 'true');
+      }
+    })();
+  </script>
+</body>
+</html>

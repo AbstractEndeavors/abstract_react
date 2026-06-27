@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title }} | thedailydialectics</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="{{ keywords }}">
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ first_thumb }}">
+
+  <script type="application/ld+json">{{ schema_json }}</script>
+
+  <link rel="stylesheet" href="/static/viewer/viewer.css">
+</head>
+<body>
+
+{{ viewer_data_script|safe }}
+
+<div class="viewer-root">
+
+  <div class="topbar">
+    <a class="home" href="{{ site_root }}">← Home</a>
+    <span style="color:#444">/</span>
+    <h1>{{ title }}</h1>
+
+    <div class="fmt-btns">
+      <button class="fmt-btn active" data-format="pdf">PDF</button>
+      <button class="fmt-btn" data-format="images">Images</button>
+      <button class="fmt-btn" data-format="text">Text</button>
+    </div>
+
+    <div class="search-wrap">
+      <input data-role="search" type="search" placeholder="Search text…">
+      <span data-role="search-status"></span>
+    </div>
+  </div>
+
+  <div class="abstract-bar">
+    <div style="flex:1">
+      <p>{{ description }}</p>
+      <div class="tags" data-role="keywords"></div>
+    </div>
+    <span class="abstract-toggle" data-action="toggle-abstract">▲ hide</span>
+  </div>
+
+  <div class="main">
+    <div data-role="thumbs"></div>
+
+    <div class="viewer">
+      <div class="nav-bar">
+        <button data-nav="first">⏮</button>
+        <button data-nav="prev">◀</button>
+
+        <span data-role="page-display">Page 1 / {{ total }}</span>
+
+        <button data-nav="next">▶</button>
+        <button data-nav="last">⏭</button>
+
+        <a href="{{ pdf_url }}" target="_blank"
+           style="margin-left:auto;font-size:.8rem;color:var(--accent);text-decoration:none">
+          ⬇ Download PDF
+        </a>
+      </div>
+
+      <div data-role="content"></div>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src="/static/viewer/viewer.js"></script>
+
+</body>
+</html>

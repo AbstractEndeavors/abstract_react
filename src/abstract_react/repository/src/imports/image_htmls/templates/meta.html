@@ -1,0 +1,14 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ entry.title }} | {{ site.site_name }}</title>
+<meta name="description" content="{{ entry.alt }}" />
+<meta name="keywords" content="{{ entry.keywords_str }}" />
+<link rel="canonical" href="{{ canonical_url }}" />
+
+<meta property="og:title" content="{{ entry.title }}" />
+<meta property="og:description" content="{{ entry.alt }}" />
+{% for k, v in entry.social_meta.items() %}
+<meta {% if k.startswith('og:') %}property{% else %}name{% endif %}="{{ k }}" content="{{ v }}" />
+{% endfor %}
+
+<script type="application/ld+json">{{ schema_json | safe }}</script>

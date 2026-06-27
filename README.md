@@ -1,0 +1,228 @@
+
+# abstract_react
+
+Python tooling for analyzing, cleaning, and enriching React / TypeScript projects.
+
+`abstract_react` started as an automated TypeScript import/helper toolkit and gradually expanded into a broader project utility layer for React and TypeScript codebases. It now includes import cleanup, dependency graph analysis, metadata generation, domain/title utilities, and build/path helpers — all driven from Python.  
+
+## Why
+
+Frontend projects often end up needing automation that lives outside the frontend itself.
+
+Whether the goal is cleaning imports, tracing dependency structure, generating metadata, or supporting a larger publishing/build pipeline, the usual Node-only toolchain is not always the most convenient orchestration layer.
+
+`abstract_react` exists to let Python drive that work.
+
+## What it does
+
+### Import cleanup and reconstruction
+
+* parses single-line and multi-line TypeScript import statements
+* extracts import symbols and source paths
+* rebuilds import sections cleanly
+* preserves file structure and supports safe replacement flows via structured schemas 
+
+### Project analysis and graphing
+
+* analyzes exports, imports, and re-exports
+* distinguishes export kinds where possible
+* builds entry-reachable dependency graphs
+* builds full-project graphs across a source tree
+* emits graph structures suitable for downstream visualization or tooling 
+
+### Metadata and SEO-oriented utilities
+
+* generates normalized metadata dictionaries
+* builds Open Graph output from page info
+* supports title/domain variant derivation
+* integrates image validation and resize logic into metadata generation flows  
+
+### Build and path helpers
+
+* resolves absolute and relative paths
+* derives output paths for tooling workflows
+* supports project-oriented filesystem operations around code generation and analysis 
+
+## Project scope
+
+This is not a React component library.
+
+This is a Python-side utility package for working **around** React and TypeScript projects:
+
+* inspecting them
+* cleaning them
+* mapping them
+* generating metadata for them
+* fitting them into larger automation pipelines
+
+That distinction matters.
+
+## Good fit for
+
+* Python-heavy developers maintaining React or TS projects
+* automated cleanup/refactor tooling
+* import normalization workflows
+* dependency inspection and graphing
+* metadata/SEO generation pipelines
+* build-time or pre-deployment project automation
+
+## Architecture at a glance
+
+```text
+React / TypeScript project
+        │
+        ├── import parsing + reconstruction
+        │
+        ├── export / re-export inspection
+        │
+        ├── dependency graph building
+        │
+        ├── metadata + Open Graph generation
+        │
+        └── path/build utility support
+```
+
+## Features
+
+* Python-first orchestration for React/TS projects
+* robust import extraction from raw file text
+* structured dataclasses for transformation workflows
+* graph-based dependency analysis
+* metadata generation for frontend/page outputs
+* utility support for larger project automation systems  
+
+## Installation
+
+```bash
+pip install abstract-react
+```
+
+Or from source:
+
+```bash
+git clone <your-repo-url>
+cd abstract_react
+pip install -e .
+```
+
+## Examples
+
+### Analyze a reachable dependency graph
+
+```python
+from pathlib import Path
+from abstract_react.analyze_utils.src.graph_utils import build_graph_reachable
+
+graph = build_graph_reachable(
+    entry=Path("src/main.tsx"),
+    src_root=Path("src")
+)
+
+print(graph["nodes"])
+print(graph["edges"])
+```
+
+### Extract imports from a file
+
+```python
+from abstract_react.clean_imports.src.functions.importUtils import extract_all_imports_robust
+
+imports = extract_all_imports_robust("src/example.ts")
+for imp in imports:
+    print(imp.from_path, imp.imports)
+```
+
+### Rebuild an import section
+
+```python
+from abstract_react.clean_imports.src.functions.importUtils import extract_all_imports_robust
+from abstract_react.clean_imports.src.functions.fileUtils import replace_imports_in_file
+
+imports = extract_all_imports_robust("src/example.ts")
+
+replacement = replace_imports_in_file(
+    file_path="src/example.ts",
+    new_imports=[
+        'import { something } from "./utils";'
+    ],
+    imports=imports
+)
+
+print(replacement.new_content)
+```
+
+### Generate metadata
+
+```python
+from abstract_react.meta_utils.generators.metadata_builder import generate_metadata
+
+info = {
+    "title": "Example Page",
+    "description": "Example description",
+    "share_url": "https://example.com/page",
+    "thumbnail": "thumb.jpg",
+    "thumbnail_link": "https://example.com/thumb.jpg",
+}
+
+meta = generate_metadata(info)
+print(meta["og"])
+print(meta["twitter"])
+```
+
+## Example module areas
+
+```text
+abstract_react/
+├── analyze_utils/
+│   ├── graph analysis
+│   ├── worker utilities
+│   └── import/export inspection
+├── clean_imports/
+│   ├── import parsing
+│   ├── file reconstruction
+│   ├── schemas
+│   └── replacement utilities
+├── meta_utils/
+│   ├── metadata builders
+│   ├── Open Graph helpers
+│   ├── Twitter helpers
+│   ├── title/domain utilities
+│   └── API-facing helpers
+├── build_utils/
+│   └── path/build helpers
+```
+
+## Design notes
+
+This package grew outward from a narrower original purpose.
+
+It began as automated TypeScript helper/import tooling, but the same workflows naturally led into adjacent needs:
+
+* project structure awareness
+* dependency inspection
+* path resolution
+* metadata generation
+* frontend-facing automation support
+
+So while the package is broader now than the original intent, the growth is still coherent: it is all centered on **Python-controlled tooling for React/TypeScript projects**.   
+
+## Roadmap ideas
+
+* CLI entrypoints for common workflows
+* clearer public API surface
+* graph export targets beyond DOT
+* project config presets
+* stronger separation between:
+
+  * import tooling
+  * analyzer tooling
+  * metadata tooling
+
+## Status
+
+Actively evolving utility package.
+
+Originally import-focused. Now a broader automation toolkit for React/TypeScript ecosystems managed from Python.
+
+---
+

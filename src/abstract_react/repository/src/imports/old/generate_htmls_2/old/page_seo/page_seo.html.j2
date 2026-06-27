@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{generate_meta_tags(metadata)}}
+    <!-- Schema -->
+    <script type="application/ld+json">{{ schema_json }}</script>
+    <!-- Style -->
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/page/document-page.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="{{ site_root }}">Home</a> › 
+                <a href="{{ document_url }}">{{ document_title }}</a> › 
+                <span>Page {{ page_num }}</span>
+            </div>
+            
+            <h1>{{ title }}</h1>
+            
+            <div class="doc-link">
+                <p><a href="{{ document_url }}">← Back to {{ document_title }}</a></p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Page Image -->
+        {% if image_url %}
+        <div class="page-image-block">
+            <img src="{{ image_url }}" alt="{{ alt_text }}" loading="lazy">
+        </div>
+        {% endif %}
+        
+        <!-- Metadata Cards -->
+        <div class="page-meta">
+            <div class="meta-card">
+                <h3>Description</h3>
+                <p>{{ description }}</p>
+            </div>
+            
+            <div class="meta-card">
+                <h3>Keywords</h3>
+                <div class="keywords-block">
+                    {% for kw in keywords_list %}
+                    <span class="keyword-tag">{{ kw }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- OCR Text -->
+        {% if ocr_text %}
+        <div class="ocr-text">
+            <h3>Page Content</h3>
+            <p>{{ ocr_text }}</p>
+        </div>
+        {% endif %}
+        
+        <!-- Actions -->
+        <div class="actions">
+            <a href="{{ document_url }}" class="action-link secondary">View Full Document</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>{{ document_title }} — Page {{ page_num }} | 
+            <a href="{{ canonical_url }}" style="color: #0066cc; text-decoration: none;">Permalink</a>
+        </p>
+    </footer>
+</body>
+</html>
